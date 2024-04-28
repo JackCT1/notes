@@ -22,8 +22,9 @@
 \newpage
 
 \part{Single Variable Calculus}
-\section{Differentiation}
-\subsection{The Derivative}
+
+\chapter{Differentiation}
+\section{The Derivative}
 
 \begin{center}
     \begin{tikzpicture}[scale=0.7]
@@ -93,13 +94,13 @@
     \frac{d}{dx}(e^{ax}) = ae^{ax}
 \end{equation*}
 
-\subsection{The Chain Rule}
+\section{The Chain Rule}
 
 \begin{equation*}
     \frac{d}{dx}f[g(x)] = \frac{df}{dg} \frac{dg}{dx}
 \end{equation*}
 
-\subsection{The Product Rule}
+\section{The Product Rule}
 
 \begin{equation*}
     \frac{d}{dx} f(x)g(x) = \frac{df}{dx} g(x) + f(x)\frac{dg}{dx}
@@ -116,8 +117,8 @@
     &= \frac{f'(x)g(x) - f(x)g'(x)}{(g(x))^{2}}
 \end{align*}
 
-\section{Integration}
-\subsection{The Antiderivative}
+\chapter{Integration}
+\section{The Antiderivative}
 
 \begin{equation*}
     I = \int_{a}^{b} f(x)dx
@@ -129,8 +130,8 @@
 
 \[\int e^{ax}dx = \frac{1}{a}e^{ax} + c, \qquad \int \frac{1}{x}dx = ln(x) + c\]
 
-\subsection{Integration by Substitution}
-\subsection{Integration by Parts}
+\section{Integration by Substitution}
+\section{Integration by Parts}
 
 \begin{equation*}
     \frac{d}{dx}(uv) = u \frac{dv}{dx} + \frac{du}{dx} v
@@ -144,7 +145,7 @@
     \int u \frac{dv}{dx} dx = uv - \int \frac{du}{dx}vdx
 \end{equation*}
 
-\subsection{Surfaces and Volumes of Revolution}
+\section{Surfaces and Volumes of Revolution}
 
 \begin{equation*}
     \Delta S \approx \sqrt{(\Delta x)^{2} + (\Delta y)^{2}}
@@ -162,10 +163,18 @@
     V = \int_{a}^{b} \pi y^{2} dx
 \end{equation*}
 
-\[ 1 \times  2 = 3,\qquad 2\times 3 = 1, \qquad 3\times 1 = 2\]
+\section{Plane Polar Coordinates}
+
+\chapter{Series}
+
+\section{Power Series}
+
+\section{Taylor Series}
+
+\chapter{Complex Numbers}
 
 \part{Multi Variable Calculus}
-\section{Partial Differentiation}
+\chapter{Partial Differentiation}
 
 \begin{equation*}
     \frac{\partial f}{\partial x} = \lim_{\Delta x \to 0}\frac{f(x + \Delta x, y) - f(x, y)}{\Delta x}
@@ -189,7 +198,24 @@
     df = \frac{\partial f(x, y)}{\partial x}dx + \frac{\partial f(x, y)}{\partial y}dy
 \end{equation*}
 
-\section{Multiple Integrals}
-\section{Vector Calculus}
+\begin{equation*}
+    df = \sum_{i}^{n}\frac{\partial f}{\partial x_{i}}dx_{i}
+\end{equation*}
+
+\begin{equation*}
+    \frac{df}{dx_{1}} = \sum_{i}^{n}\left(\frac{\partial f}{\partial x_{i}}\right)\frac{dx_{i}}{dx_{1}}
+\end{equation*}
+
+\chapter{Multiple Integrals}
+
+\begin{equation*}
+    I = \int_{}^{}f(x,y)dA
+\end{equation*}
+
+\begin{equation*}
+    I = \int_{}^{}\int_{}^{}f(x,y)dxdy
+\end{equation*}
+
+\chapter{Vector Calculus}
 
 \end{document}
