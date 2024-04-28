@@ -1,4 +1,4 @@
-\documentclass[]{article}
+\documentclass[]{report}
 
 \usepackage{circuitikz}
 \usepackage{amsmath}
@@ -127,7 +127,7 @@
     \int x^{n}dx = \frac{x^{n+1}}{n+1} + C
 \end{equation*}
 
-\[\int e^{ax}dx = \frac{1}{a}e^{ax} + c, \space \int \frac{1}{x}dx = ln(x) + c\]
+\[\int e^{ax}dx = \frac{1}{a}e^{ax} + c, \qquad \int \frac{1}{x}dx = ln(x) + c\]
 
 \subsection{Integration by Substitution}
 \subsection{Integration by Parts}
@@ -166,6 +166,29 @@
 
 \part{Multi Variable Calculus}
 \section{Partial Differentiation}
+
+\begin{equation*}
+    \frac{\partial f}{\partial x} = \lim_{\Delta x \to 0}\frac{f(x + \Delta x, y) - f(x, y)}{\Delta x}
+\end{equation*}
+
+\begin{equation*}
+    \frac{\partial f}{\partial y} = \lim_{\Delta y \to 0}\frac{f(x, y + \Delta y) - f(x, y)}{\Delta y}
+\end{equation*}
+
+\[\frac{\partial}{\partial x}\left(\frac{\partial f}{\partial x}\right) = \frac{\partial^{2}f}{\partial x ^{2}} \qquad \frac{\partial}{\partial y}\left(\frac{\partial f}{\partial y}\right) = \frac{\partial^{2}f}{\partial y ^{2}}\]
+
+\begin{equation*}
+    \frac{\partial^{2}f}{\partial x \partial y} = \frac{\partial^{2}f}{\partial y \partial x}
+\end{equation*}
+
+\begin{equation*}
+    \Delta f \approx \frac{\partial f(x, y)}{\partial x}\Delta x + \frac{\partial f(x, y)}{\partial y}\Delta y
+\end{equation*}
+
+\begin{equation*}
+    df = \frac{\partial f(x, y)}{\partial x}dx + \frac{\partial f(x, y)}{\partial y}dy
+\end{equation*}
+
 \section{Multiple Integrals}
 \section{Vector Calculus}
 
