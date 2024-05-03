@@ -1,0 +1,33 @@
+\chapter{Partial Differentiation}
+
+\section{The Partial Derivative}
+
+\begin{equation*}
+    \frac{\partial f}{\partial x} = \lim_{\Delta x \to 0}\frac{f(x + \Delta x, y) - f(x, y)}{\Delta x}
+\end{equation*}
+
+\begin{equation*}
+    \frac{\partial f}{\partial y} = \lim_{\Delta y \to 0}\frac{f(x, y + \Delta y) - f(x, y)}{\Delta y}
+\end{equation*}
+
+\[\frac{\partial}{\partial x}\left(\frac{\partial f}{\partial x}\right) = \frac{\partial^{2}f}{\partial x ^{2}} \qquad \frac{\partial}{\partial y}\left(\frac{\partial f}{\partial y}\right) = \frac{\partial^{2}f}{\partial y ^{2}}\]
+
+\begin{equation*}
+    \frac{\partial^{2}f}{\partial x \partial y} = \frac{\partial^{2}f}{\partial y \partial x}
+\end{equation*}
+
+\begin{equation*}
+    \Delta f \approx \frac{\partial f(x, y)}{\partial x}\Delta x + \frac{\partial f(x, y)}{\partial y}\Delta y
+\end{equation*}
+
+\begin{equation*}
+    df = \frac{\partial f(x, y)}{\partial x}dx + \frac{\partial f(x, y)}{\partial y}dy
+\end{equation*}
+
+\begin{equation*}
+    df = \sum_{i}^{n}\frac{\partial f}{\partial x_{i}}dx_{i}
+\end{equation*}
+
+\begin{equation*}
+    \frac{df}{dx_{1}} = \sum_{i}^{n}\left(\frac{\partial f}{\partial x_{i}}\right)\frac{dx_{i}}{dx_{1}}
+\end{equation*}

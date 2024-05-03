@@ -1,0 +1,99 @@
+\chapter{Differentiation}
+\section{The Derivative}
+
+\begin{center}
+    \begin{tikzpicture}[scale=0.7]
+    \begin{axis}[
+        axis lines = left,
+        axis lines = center,
+        xtick style={draw=none},
+        ytick style={draw=none},
+        xticklabels={},
+        yticklabels={},
+        xlabel = {x},
+        ylabel = {y},
+    ]
+    
+    \addplot [
+        domain=-15.708:15.708, 
+        samples=100, 
+        color=black,
+    ]
+    {x};
+     
+    \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\begin{center}
+    \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+        axis lines = left,
+        axis lines = center,
+        xtick style={draw=none},
+        ytick style={draw=none},
+        xticklabels={},
+        yticklabels={},
+        xlabel = {x},
+        ylabel = {y},
+    ]
+    
+    \addplot [
+        domain=-15.708:15.708, 
+        samples=100, 
+        color=black,
+    ]
+    {x^2};
+     
+    \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\begin{equation*}
+    \frac{df}{dx} = \lim_{\Delta x \to 0} \frac{\Delta f}{\Delta x}
+\end{equation*}
+
+\begin{equation*}
+    \frac{df}{dx} = \lim_{\Delta x \to 0} \frac{f(x + \Delta x) - f(x)}{\Delta x}
+\end{equation*}
+
+\begin{align*}
+    \frac{d}{dx}(x^{n}) &= \lim_{\Delta x \to 0} \frac{(x + \Delta x)^{n} - x^{n}}{\Delta x}\\
+    &= \lim_{\Delta x \to 0} \frac{(x^{n} + n x^{n-1}\Delta x + \frac{1}{2}n(n-1)x^{n-2}\Delta x^{2} +\dots) - x^{n}}{\Delta x}\\
+    &= \lim_{\Delta x \to 0} \frac{n x^{n-1}\Delta x + \frac{1}{2}n(n-1)x^{n-2}\Delta x^{2}}{\Delta x}\\
+    &= \lim_{\Delta x \to 0} n x^{n-1} + \frac{1}{2}n(n-1)x^{n-2}\Delta x\\
+    &= n x^{n-1}
+\end{align*}
+
+\begin{equation*}
+    \frac{d}{dx}(e^{ax}) = ae^{ax}
+\end{equation*}
+
+\section{The Chain Rule}
+
+\begin{equation*}
+    \frac{d}{dx}f[g(x)] = \frac{df}{dg} \frac{dg}{dx}
+\end{equation*}
+
+\section{The Product Rule}
+
+\begin{equation*}
+    \frac{d}{dx} \left[f(x)g(x)\right] = \frac{df}{dx} g(x) + f(x)\frac{dg}{dx}
+\end{equation*}
+
+\begin{equation*}
+    (uv)' = u' v + uv'
+\end{equation*}
+
+\begin{equation*}
+    \frac{d}{dx} \left[f(x)g(x)h(x)\right] = \frac{df}{dx} g(x)h(x) + f(x)\frac{dg}{dx} h(x) + f(x)g(x) \frac{dh}{dx}
+\end{equation*}
+
+\begin{align*}
+    \frac{d}{dx}\left(\frac{f(x)}{g(x)}\right) &= \frac{df}{dx}\left(\frac{1}{g(x)}\right) + f(x)\frac{d}{dx}\left(\frac{1}{g(x)}\right)\\
+    &= \frac{f'(x)}{g(x)} + f(x)\left(- \frac{g'(x)}{(g(x))^2}\right)\\
+    &= \frac{f'(x)}{g(x)} - \frac{f(x)g'(x)}{(g(x))^{2}}\\
+    &= \frac{f'(x)g(x) - f(x)g'(x)}{(g(x))^{2}}
+\end{align*}
+
+\section{Implicit Differentiation}
