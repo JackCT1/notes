@@ -1,29 +1,10 @@
 \chapter{Differentiation}
 \section{The Derivative}
 
-\begin{center}
-    \begin{tikzpicture}[scale=0.7]
-    \begin{axis}[
-        axis lines = left,
-        axis lines = center,
-        xtick style={draw=none},
-        ytick style={draw=none},
-        xticklabels={},
-        yticklabels={},
-        xlabel = {x},
-        ylabel = {y},
-    ]
-    
-    \addplot [
-        domain=-15.708:15.708, 
-        samples=100, 
-        color=black,
-    ]
-    {x};
-     
-    \end{axis}
-    \end{tikzpicture}
-\end{center}
+The derivative measures change. More specifically, if we have a function, f(x), then the derivative
+of this function (often denoted f'(x)) tells us how quickly the function is increasing or decreasing
+at any given point. If we consider a general function and think how we might measure how it changes,
+we may look at the difference in the function between two values of x.
 
 \begin{center}
     \begin{tikzpicture}[scale=1]
@@ -35,19 +16,52 @@
         xticklabels={},
         yticklabels={},
         xlabel = {x},
-        ylabel = {y},
+        ylabel = {f(x)},
     ]
     
     \addplot [
-        domain=-15.708:15.708, 
+        domain=-0:12, 
         samples=100, 
         color=black,
     ]
     {x^2};
+    \addplot+ [
+        black, dotted,
+        mark=none,
+    ]
+    coordinates {
+        (8,0)
+        (8,64)
+
+        (10,0)
+        (10,100)
+
+        (0, 64)
+        (8, 64)
+
+        (0, 100)
+        (10, 100)
+
+    };
      
     \end{axis}
     \end{tikzpicture}
 \end{center}
+
+Here we have two points, one at $x = x_1$ and $x = x_2 = x_1 + \Delta x$. Here $\Delta$ means "change in"
+and so $\Delta x$ denotes the difference between our two x values. The corresponding function values are
+$f(x_1)$ and $f(x_1 + \Delta x)$ where the difference between these two values is $\Delta f$. We can say 
+a reasonable estimate of the rate of change would be the gradient of the line that passes through these two 
+points. We can write this as
+
+\begin{equation*}
+    \frac{\Delta f}{\Delta x} = \frac{f(x + \Delta x) - f(x)}{\Delta x}
+\end{equation*}
+
+We can see that this estimate for the rate of change gets better the closer the two points are, or the smaller 
+$\Delta x$ gets. If we take the limit of $\Delta x \to 0$, then our two points become infinitesimally close and the
+line through them becomes the tangent line to the curve. Thus we arrive at the definition of the derivative and the
+idea of "instantaneous" rate of change. 
 
 \begin{equation*}
     \frac{df}{dx} = \lim_{\Delta x \to 0} \frac{\Delta f}{\Delta x}
