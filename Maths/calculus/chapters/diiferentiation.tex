@@ -15,12 +15,16 @@ we may look at the difference in the function between two values of x.
         ytick style={draw=none},
         xticklabels={},
         yticklabels={},
-        xlabel = {x},
-        ylabel = {f(x)},
+        xlabel = {$x$},
+        ylabel = {$f(x)$},
     ]
     
+    \node [left] at (0, 64) {\(f(x)\)};
+    \node [left] at (0, 100) {\(f(x + \Delta x)\)};
+    \node [below] at (8, 0) {\(x\)};
+    \node [below] at (10, 0) {\(x + \Delta x\)};
     \addplot [
-        domain=-0:12, 
+        domain=-4:12, 
         samples=100, 
         color=black,
     ]
@@ -43,7 +47,14 @@ we may look at the difference in the function between two values of x.
         (10, 100)
 
     };
-     
+    \addplot+ [
+        black,
+        mark=none
+    ]
+    coordinates {
+        (3,-26)
+        (12, 136)
+    };
     \end{axis}
     \end{tikzpicture}
 \end{center}
@@ -54,36 +65,64 @@ $f(x_1)$ and $f(x_1 + \Delta x)$ where the difference between these two values i
 a reasonable estimate of the rate of change would be the gradient of the line that passes through these two 
 points. We can write this as
 
-\begin{equation*}
+\begin{equation} \label{gradient}
     \frac{\Delta f}{\Delta x} = \frac{f(x + \Delta x) - f(x)}{\Delta x}
-\end{equation*}
+\end{equation}
 
 We can see that this estimate for the rate of change gets better the closer the two points are, or the smaller 
 $\Delta x$ gets. If we take the limit of $\Delta x \to 0$, then our two points become infinitesimally close and the
 line through them becomes the tangent line to the curve. Thus we arrive at the definition of the derivative and the
-idea of "instantaneous" rate of change. 
+idea of "instantaneous" rate of change. The derivative is defined as a function which gives us the gradient of the 
+tangent line to a curve at a point $x$. Mathematically we can write this as
 
 \begin{equation*}
-    \frac{df}{dx} = \lim_{\Delta x \to 0} \frac{\Delta f}{\Delta x}
+    f'(x) \equiv \frac{df}{dx} \equiv \lim_{\Delta x \to 0} \frac{\Delta f}{\Delta x}\\
 \end{equation*}
 
-\begin{equation*}
-    \frac{df}{dx} = \lim_{\Delta x \to 0} \frac{f(x + \Delta x) - f(x)}{\Delta x}
-\end{equation*}
+Using the expression for the gradient above we then get
+
+\begin{equation} \label{deriv-def}
+    \frac{df}{dx} \equiv \lim_{\Delta x \to 0} \frac{f(x + \Delta x) - f(x)}{\Delta x}
+\end{equation}
+
+Which is our formal definition of the derivative. The process of finding a functions derivative is called 
+differentiation. We can differentiate from first principles using the expression above.\\
+
+\noindent\textbf{Example: Differentiate the function $x^2$ using first principles.}
+
+Using equation \ref{deriv-def}, we have that
+
+\begin{align*}
+    \frac{d}{dx}(x^2) &= \lim_{\Delta x \to 0} \frac{(x + \Delta x)^2 - x^2}{\Delta x}\\
+    &= \lim_{\Delta x \to 0} \frac{(x^2 + 2x\Delta x + \Delta x^2) - x^2}{\Delta x}\\
+    &= \lim_{\Delta x \to 0} \frac{2x\Delta x + \Delta x^2}{\Delta x}\\
+    &= \lim_{\Delta x \to 0} 2x + \Delta x\\
+    &= 2x\\
+\end{align*}
+
+We can generalise the above example differentiating $x^n$ instead. With which we get
 
 \begin{align*}
     \frac{d}{dx}(x^{n}) &= \lim_{\Delta x \to 0} \frac{(x + \Delta x)^{n} - x^{n}}{\Delta x}\\
-    &= \lim_{\Delta x \to 0} \frac{(x^{n} + n x^{n-1}\Delta x + \frac{1}{2}n(n-1)x^{n-2}\Delta x^{2} +\dots) - x^{n}}{\Delta x}\\
-    &= \lim_{\Delta x \to 0} \frac{n x^{n-1}\Delta x + \frac{1}{2}n(n-1)x^{n-2}\Delta x^{2}}{\Delta x}\\
-    &= \lim_{\Delta x \to 0} n x^{n-1} + \frac{1}{2}n(n-1)x^{n-2}\Delta x\\
+    &= \lim_{\Delta x \to 0} \frac{(x^{n} + n x^{n-1}\Delta x + \binom{n}{2}x^{n-2}\Delta x^{2} +\dots) - x^{n}}{\Delta x}\\
+    &= \lim_{\Delta x \to 0} \frac{n x^{n-1}\Delta x + \binom{n}{2}x^{n-2}\Delta x^{2}}{\Delta x} + \dots\\
+    &= \lim_{\Delta x \to 0} n x^{n-1} + \binom{n}{2}x^{n-2}\Delta x + \dots\\
     &= n x^{n-1}
 \end{align*}
+
+We know this is true for all $n$ as any subsequent terms will contain a factor of $\Delta x$ which 
+follows from the binomial theorem. The expression we have just derived is known as the power rule
+which we can use to differentiate any power term. There are further rules of differentiation which
+will allow us to differentiate any function thrown at us.
 
 \begin{equation*}
     \frac{d}{dx}(e^{ax}) = ae^{ax}
 \end{equation*}
 
 \section{The Chain Rule}
+
+The first rule is the chain rule which we use to differentiate composite functions, or "functions
+of functions"
 
 \begin{equation*}
     \frac{d}{dx}f[g(x)] = \frac{df}{dg} \frac{dg}{dx}
