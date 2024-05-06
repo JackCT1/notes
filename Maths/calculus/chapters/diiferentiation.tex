@@ -100,7 +100,7 @@ Using equation \ref{deriv-def}, we have that
     &= 2x\\
 \end{align*}
 
-We can generalise the above example differentiating $x^n$ instead. With which we get
+We can generalise the above example  by differentiating $x^n$ instead. With which we get
 
 \begin{align*}
     \frac{d}{dx}(x^{n}) &= \lim_{\Delta x \to 0} \frac{(x + \Delta x)^{n} - x^{n}}{\Delta x}\\
@@ -122,13 +122,32 @@ will allow us to differentiate any function thrown at us.
 \section{The Chain Rule}
 
 The first rule is the chain rule which we use to differentiate composite functions, or "functions
-of functions"
+of functions". If we have a composite function, $f[g(x)]$, then the chain rule says the derivative
+of f with respect to x can be written as
 
 \begin{equation*}
     \frac{d}{dx}f[g(x)] = \frac{df}{dg} \frac{dg}{dx}
 \end{equation*}
 
 \section{The Product Rule}
+
+The second rule is the product rule which tells us how to derivative products of functions. Formally, we 
+ay derive this using equation \ref*{deriv-def}. If we define the product of two functions $f(x) = u(x)v(x)$,
+then we can write
+
+\begin{align*}
+    f(x + \Delta x) - f(x) &= u(x + \Delta x)v(x + \Delta x) - u(x)v(x)\\
+    &= u(x + \Delta x)v(x + \Delta x) - u(x + \Delta x)v(x) + u(x + \Delta x)v(x) - u(x)v(x)\\
+    &= u(x + \Delta x)\left[v(x + \Delta x) - v(x)\right] + \left[u(x + \Delta x) - u(x)\right]v(x)\\
+\end{align*}
+
+and so using our definition of the derivative,
+
+\begin{align*}
+    \frac{df}{dx} &= \lim_{\Delta x \to 0} \frac{f(x + \Delta x) - f(x)}{\Delta x}\\
+    &= \lim_{\Delta x \to 0} \left\{u(x + \Delta x)\left[\frac{v(x + \Delta x) - v(x)}{\Delta x}\right] + \left[\frac{u(x + \Delta x) - u(x)}{\Delta x}\right]v(x)\right\}\\
+    &= u(x)\frac{dv}{dx} + \frac{dv}{dx}v(x)
+\end{align*}
 
 \begin{equation*}
     \frac{d}{dx} \left[f(x)g(x)\right] = \frac{df}{dx} g(x) + f(x)\frac{dg}{dx}
