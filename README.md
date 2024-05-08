@@ -1,1 +1,1 @@
-# maths-notes
+# Notes
