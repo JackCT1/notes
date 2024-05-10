@@ -179,3 +179,19 @@ Combining our two fractions and we get
 Which is our quotient rule.
 
 \section{Implicit Differentiation}
+
+So far we have differentiated functions in the form $y = f(x)$ which is its explicit form.
+However, not every function can be expressed explicitly, for example $x^3 - 3xy + y^3 = 2$. 
+Such functions are called implicit functions. We can differentiate implicit functions term 
+by term using the chain rule. In the case of function above we have,
+
+\begin{align*}
+    \frac{d}{dx}(x^3) -  \frac{d}{dx}(3xy) +  \frac{d}{dx}(y^3) =  \frac{d}{dx}(2)\\
+    3x^2 - \left(3x\frac{dy}{dx} + 3y\right) + 3y^2\frac{dy}{dx} = 0
+\end{align*}
+
+\begin{equation*}
+    \frac{dy}{dx} = \frac{y - x^2}{y^2 - x}
+\end{equation*}
+
+\section{Maxima and Minima}
