@@ -146,26 +146,36 @@ and so using our definition of the derivative,
 \begin{align*}
     \frac{df}{dx} &= \lim_{\Delta x \to 0} \frac{f(x + \Delta x) - f(x)}{\Delta x}\\
     &= \lim_{\Delta x \to 0} \left\{u(x + \Delta x)\left[\frac{v(x + \Delta x) - v(x)}{\Delta x}\right] + \left[\frac{u(x + \Delta x) - u(x)}{\Delta x}\right]v(x)\right\}\\
-    &= u(x)\frac{dv}{dx} + \frac{dv}{dx}v(x)
+    &= u(x)\frac{dv}{dx} + \frac{du}{dx}v(x)
 \end{align*}
 
-\begin{equation*}
-    \frac{d}{dx} \left[f(x)g(x)\right] = \frac{df}{dx} g(x) + f(x)\frac{dg}{dx}
-\end{equation*}
+This can be written much more neatly using prime notation which gives us,
 
 \begin{equation*}
-    (uv)' = u' v + uv'
+    f' = (uv)' = u' v + uv'
 \end{equation*}
+
+This also works for any numbers of products. Namely, if we had $f(x) = u(x)v(x)w(x)$ then,
 
 \begin{equation*}
-    \frac{d}{dx} \left[f(x)g(x)h(x)\right] = \frac{df}{dx} g(x)h(x) + f(x)\frac{dg}{dx} h(x) + f(x)g(x) \frac{dh}{dx}
+    f' = u'vw + uv'w + uvw'
 \end{equation*}
 
-\begin{align*}
-    \frac{d}{dx}\left(\frac{f(x)}{g(x)}\right) &= \frac{df}{dx}\left(\frac{1}{g(x)}\right) + f(x)\frac{d}{dx}\left(\frac{1}{g(x)}\right)\\
-    &= \frac{f'(x)}{g(x)} + f(x)\left(- \frac{g'(x)}{(g(x))^2}\right)\\
-    &= \frac{f'(x)}{g(x)} - \frac{f(x)g'(x)}{(g(x))^{2}}\\
-    &= \frac{f'(x)g(x) - f(x)g'(x)}{(g(x))^{2}}
-\end{align*}
+\section{The Quotient Rule}
+
+Like the product rule with products of functions, the quotient rule tells how to differentiate 
+quotients of functions. Consider the function $f(x) = u(x)/v(x)$, the product rule tells us that
+
+\begin{equation*}
+    f' = \left(\frac{u}{v}\right)' = u\left(\frac{1}{v}\right)' + u'\left(\frac{1}{v}\right) = u\left(-\frac{v'}{v^2}\right) + \frac{u'}{v}
+\end{equation*}
+
+Combining our two fractions and we get
+
+\begin{equation*}
+    f' = \left(\frac{u}{v}\right)' = \frac{vu' - uv'}{v^2}
+\end{equation*}
+
+Which is our quotient rule.
 
 \section{Implicit Differentiation}
