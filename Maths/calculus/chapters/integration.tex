@@ -29,7 +29,15 @@
 \section{Surfaces and Volumes of Revolution}
 
 \begin{equation*}
-    \Delta S \approx \sqrt{(\Delta x)^{2} + (\Delta y)^{2}}
+    \Delta s \approx \sqrt{(\Delta x)^{2} + (\Delta y)^{2}}
+\end{equation*}
+
+\begin{equation*}
+    \frac{ds}{dx} = \sqrt{1 + \left(\frac{dy}{dx}\right)^2}
+\end{equation*}
+
+\begin{equation*}
+    s = \int_{a}^{b}\sqrt{1 + \left(\frac{dy}{dx}\right)^{2}}dx
 \end{equation*}
 
 \begin{equation*}
@@ -45,3 +53,18 @@
 \end{equation*}
 
 \section{Plane Polar Coordinates}
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw [<->] (3,0) -- (0,0) -- (0,3);
+        \draw (-3,0) -- (0,0) -- (0,-3);
+        \draw (0,0) circle [radius = 2];
+        \draw [->] (0,0) -- (1.41, 1.41);
+        \draw (0.5,0) arc [radius = 0.5, start angle = 0, end angle = 45];
+        \node at (0.6,0.25) {\footnotesize{\(\theta\)}};
+        \node [above left] at (0.7,0.7) {\(r\)};
+        \node [above right] at (1.41,1.41) {\(P\)};
+        \node [right] at (3,0) {\(x\)};
+        \node [above] at (0,3) {\(y\)};
+    \end{tikzpicture}
+\end{center}

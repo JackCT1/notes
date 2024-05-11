@@ -9,6 +9,44 @@
     z = x + iy
 \end{equation*}
 
+\begin{equation*}
+    z_1 + z_2 = (x_1 + iy_1) + (x_2 + iy_2) = (x_1 + x_2) + i(y_1 + y_2)
+\end{equation*}
+
+\begin{align*}
+    z_1 + z_2 &= z_2 + z_1\\
+    z_1 + (z_2 + z_3) &= (z_1 + z_2) + z_3
+\end{align*}
+
+\begin{align*}
+    z_1z_2 &= (x_1 + iy_1)(x_2 + iy_2)\\
+    &= x_1x_2 + i(x_1y_2 + y_1x_2) + i^2 y_1y_2\\
+    &= (x_1x_2 - y_1y_2) +i(x_1x_2 - y_1y_2)
+\end{align*}
+
+\begin{align*}
+    z_1z_2 &= z_2z_1\\
+    (z_1z_2)z_3 &= z_1(z_2z_3)
+\end{align*}
+
+\begin{align*}
+    \frac{z_1}{z_2} = \frac{x_1 + iy_1}{x_2 + iy_2}
+\end{align*}
+
+\begin{equation*}
+    |z| = \sqrt{x^2 + y^2}
+\end{equation*}
+
+\begin{equation*}
+    \arg(z) = \arctan\left(\frac{y}{x}\right)
+\end{equation*}
+
+\section{Polar Representation}
+
+\begin{equation*}
+    e^z = 1 + z + \frac{z^2}{2!} + \frac{z^3}{3!} + \dots
+\end{equation*}
+
 \begin{align*}
     e^{i\theta} &= 1 + i\theta + \frac{(i\theta)^{2}}{2!} + \frac{(i\theta)^{3}}{3!} + \frac{(i\theta)^{4}}{4!}\\
     &= 1 + i\theta - \frac{\theta^{2}}{2!} - \frac{i\theta^{3}}{3!} + \frac{\theta^{4}}{4!} + \dots\\
@@ -19,10 +57,21 @@
     e^{i\theta} = \cos\theta + i\sin\theta
 \end{equation*}
 
-\section{De Moivre's Theorem}
-
 \begin{equation*}
     e^{in\theta} = \cos n\theta + i \sin n\theta
+\end{equation*}
+
+\begin{equation*}
+    z = re^{i\theta}
+\end{equation*}
+
+\begin{equation*}
+    re^{i\theta} = re^{i(\theta + 2n\pi)}
+\end{equation*}
+
+\section{De Moivre's Theorem}
+\begin{equation*}
+    (\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta)
 \end{equation*}
 
 \begin{equation*}
@@ -46,6 +95,18 @@
 \begin{equation*}
     \tanh(x) = \frac{\sinh(x)}{\cosh(x)} = \frac{e^x - e^{-x}}{e^x + e^{-x}}
 \end{equation*}
+
+\begin{align*}
+    \cos(ix) &= \frac{1}{2}(e^x + e^{-x})\\
+    \sin(ix) &= \frac{1}{2}(e^x - e^{-x})\\
+\end{align*}
+
+\begin{align*}
+    \cosh(x) &= \cos(ix)\\
+    i\sinh(x) &= \sin(ix)\\
+    \cos(x) &= \cosh(ix)\\
+    i\sin(x) &= \sinh(ix)
+\end{align*}
 
 \begin{equation*}
     \frac{d}{dx}\cosh(x) = \sinh(x)
