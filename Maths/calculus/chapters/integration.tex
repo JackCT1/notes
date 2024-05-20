@@ -1,8 +1,44 @@
 \chapter{Integration}
-\section{The Antiderivative}
+\section{The Integral}
+
+In essence, an integral is just a sum. A sum of infinitely many infitetesimally small parts.
+Integrals are most commonly visualised as the area under a curve.
 
 \begin{equation*}
     I = \int_{a}^{b} f(x)dx
+\end{equation*}
+
+\[\int_{a}^{b}0dx = 0, \qquad \int_{a}^{a}f(x)dx\]
+
+\begin{equation*}
+    \int_{a}^{c}f(x)dx = \int_{a}^{b}f(x)dx + \int_{b}^{a}f(x)dx
+\end{equation*}
+
+\begin{equation*}
+    \int_{a}^{b}f(x)dx = - \int_{b}^{a}f(x)dx
+\end{equation*}
+
+\begin{equation*}
+    F(x) = \int_{a}^{x}f(u)du
+\end{equation*}
+
+\begin{align*}
+    F(x + \Delta x) &= \int_{a}^{x + \Delta x}f(u)du\\
+    &= \int_{a}^{x}f(u)du + \int_{x}^{x + \Delta x}f(u)du\\
+    &= F(x) + \int_{x}^{x + \Delta x}f(u)du\\
+\end{align*}
+
+\begin{equation*}
+    \frac{F(x + \Delta x) - F(x)}{\Delta x} = 
+    \frac{1}{\Delta x}\int_{x}^{x + \Delta x}f(u)du
+\end{equation*}
+
+\begin{equation*}
+    \frac{dF(x)}{dx} = \frac{1}{\Delta x}f(x)\Delta x = f(x)
+\end{equation*}
+
+\begin{equation*}
+    \frac{d}{dx}\left[\int_{a}^{x}f(u)du\right] = f(x)
 \end{equation*}
 
 \begin{equation*}
@@ -68,3 +104,7 @@
         \node [above] at (0,3) {\(y\)};
     \end{tikzpicture}
 \end{center}
+
+\begin{equation*}
+    A = \int_{\phi_1}^{\phi_2}\frac{1}{2}\rho^2 d\phi
+\end{equation*}
