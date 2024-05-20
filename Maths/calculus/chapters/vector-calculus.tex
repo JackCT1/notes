@@ -3,12 +3,39 @@
 \section{Grad, Div, and Curl}
 
 \begin{equation*}
+    \nabla \equiv \frac{\partial}{\partial x}\boldsymbol{\hat{x}} +
+    \frac{\partial}{\partial y}\boldsymbol{\hat{y}} +
+    \frac{\partial}{\partial z}\boldsymbol{\hat{z}}
+\end{equation*}
+
+\begin{equation*}
+    \nabla\phi = \frac{\partial\phi}{\partial x}\boldsymbol{\hat{x}} +
+    \frac{\partial\phi}{\partial y}\boldsymbol{\hat{y}} +
+    \frac{\partial\phi}{\partial z}\boldsymbol{\hat{z}}
+\end{equation*}
+
+\begin{equation*}
     \nabla \cdot \boldsymbol{a} = \frac{\partial a_{x}}{\partial x} + \frac{\partial a_{y}}{\partial y} + \frac{\partial a_{z}}{\partial z} 
 \end{equation*}
 
 \begin{equation*}
-    \nabla \times \boldsymbol{a} = 
+    \nabla^2 \equiv \frac{\partial^2}{\partial x^2} +
+    \frac{\partial^2}{\partial y^2} +
+    \frac{\partial^2}{\partial z^2}
 \end{equation*}
+
+\begin{equation*}
+    \nabla \times \boldsymbol{a} = 
+    \left(\frac{\partial a_z}{\partial y} - \frac{\partial a_y}{\partial z}\right)\boldsymbol{\hat{x}} + 
+    \left(\frac{\partial a_x}{\partial z} - \frac{\partial a_z}{\partial x}\right)\boldsymbol{\hat{y}} + 
+    \left(\frac{\partial a_y}{\partial x} - \frac{\partial a_x}{\partial y}\right)\boldsymbol{\hat{z}}
+\end{equation*}
+
+\section{Cylindrical Polar Coordinates}
+
+\[ x = \rho\cos\phi, y = \rho\sin\phi, z = z\]
+
+\section{Spherical Polar Coordinates}
 
 \section{Line Integrals}
 
