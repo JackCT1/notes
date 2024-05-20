@@ -1,0 +1,146 @@
+\chapter{Vector Algebra}
+
+\section{Vector Operations}
+
+\begin{equation*}
+    \vct{a}  + \vct{b} = \vct{b} + \vct{a}
+\end{equation*}
+
+\begin{equation*}
+    \vct{a} + (\vct{b} + \vct{c}) = (\vct{a} + \vct{b}) + \vct{c}
+\end{equation*}
+
+\begin{equation*}
+    \vct{a} -  \vct{b} =  \vct{a} +(- \vct{b})
+\end{equation*}
+
+\subsection*{Scalar Multiplication}
+
+\begin{align*}
+    (\lambda\mu)\vct{a} &= \lambda(\mu\vct{a}) = \mu(\lambda\vct{a})\\
+    \lambda(\vct{a} +  \vct{b}) &= \lambda\vct{a} + \lambda\vct{b} \\
+    (\lambda + \mu)\vct{a} &= \lambda\vct{a} + \mu\vct{a} 
+\end{align*}
+
+\section{Basis Vectors}
+
+\begin{equation*}
+    \vct{a} = a_1\vct{e}_1 + a_2\vct{e}_2 + a_3\vct{e}_3
+\end{equation*}
+
+\begin{equation*}
+    \vct{\unt{a}} = \frac{\vct{a}}{|\vct{a}|}
+\end{equation*}
+
+\begin{equation*}
+    a \equiv |\vct{a}| = \sqrt{a_x^2 + a_y^2 + a_z^2}
+\end{equation*}
+
+\begin{equation*}
+    \vct{a} = a_x\vct{\unt{x}} + a_y\vct{\unt{y}} + a_z\vct{\unt{z}}
+\end{equation*}
+
+\begin{equation*}
+    \vct{a} \pm \vct{b} =
+    (a_x \pm b_x)\vct{\unt{x}} + 
+    (a_y \pm b_y)\vct{\unt{y}} + 
+    (a_z \pm b_z)\vct{\unt{z}}
+\end{equation*}
+
+\section{The Dot Product}
+
+\begin{equation*}
+    \vct{a} \cdot \vct{b}= |\vct{a}||\vct{b}| \cos \theta
+\end{equation*}
+
+\begin{equation*}
+    \vct{a} \cdot \vct{b} = 0
+\end{equation*}
+
+\begin{equation*}
+    \vct{\unt{x}} \cdot \vct{\unt{x}} = 
+    \vct{\unt{y}} \cdot \vct{\unt{y}} = 
+    \vct{\unt{z}} \cdot \vct{\unt{z}} = 1
+\end{equation*}
+
+\begin{equation*}
+    \vct{\unt{x}} \cdot \vct{\unt{y}} = 
+    \vct{\unt{y}} \cdot \vct{\unt{z}} = 
+    \vct{\unt{z}} \cdot \vct{\unt{x}} = 0
+\end{equation*}
+
+\begin{equation*}
+    \vct{a} \cdot \vct{b} = 
+    (a_x\vct{\unt{x}} + a_y\vct{\unt{y}} + a_z\vct{\unt{z}}) 
+    \cdot (b_x\vct{\unt{x}} + b_y\vct{\unt{y}} + b_z\vct{\unt{z}})
+\end{equation*}
+
+\begin{equation*}
+    \vct{a} \cdot \vct{b} = a_xb_x + a_yb_y + a_zb_z
+\end{equation*}
+    
+\begin{equation*}
+    \vct{a} \cdot \vct{a} = a_x^2 + a_y^2 + a_z^2
+\end{equation*}
+
+\section{The Cross Product}
+
+\begin{equation*}
+    \vct{a} \times \vct{b}= |\vct{a}||\vct{b}| \sin \theta
+\end{equation*}
+
+\begin{equation*}
+    \vct{a} \times \vct{a} = 0
+\end{equation*}
+
+\begin{equation*}
+    \vct{\unt{x}} \times \vct{\unt{x}} =
+    \vct{\unt{y}} \times \vct{\unt{y}} =
+    \vct{\unt{z}} \times \vct{\unt{z}} = 0
+\end{equation*}
+
+\begin{align*}
+    \vct{\unt{x}} \times \vct{\unt{y}} =
+    - \vct{\unt{y}} \times \vct{\unt{x}} =
+    \vct{\unt{z}}\\
+    \vct{\unt{y}} \times \vct{\unt{z}} =
+    -\vct{\unt{z}} \times \vct{\unt{y}} =
+    \vct{\unt{x}}\\
+    \vct{\unt{z}} \times \vct{\unt{x}} =
+    -\vct{\unt{x}} \times \vct{\unt{z}} =
+    \vct{\unt{y}}
+\end{align*}
+
+\begin{equation*}
+    \vct{a} \times \vct{b} = (a_yb_z - a_zb_y)\vct{\unt{x}} + 
+    (a_zb_x - a_xb_z)\vct{\unt{y}} + 
+    (a_xb_y - a_yb_x)\vct{\unt{z}}
+\end{equation*}
+
+\begin{equation*}
+    \vct{a} \times \vct{b} = 
+    \begin{vmatrix}
+        \vct{\unt{x}} & \vct{\unt{y}} & \vct{\unt{z}} \\ 
+        a_x & a_y & a_z \\ 
+        b_x & b_y & b_z \\ 
+        \end{vmatrix}
+\end{equation*}
+
+\section{Triple Products}
+
+\section{Reciprocal Vectors}
+
+\begin{equation*}
+    \vct{a} \cdot \vct{a'} = 
+    \vct{b} \cdot \vct{b'} = 
+    \vct{c} \cdot \vct{c'} = 1
+\end{equation*}
+
+\begin{align*}
+    \vct{a}' &= \frac{\vct{b} \times \vct{c}}
+    {\vct{a} \cdot (\vct b \times \vct c)}\\
+    \vct{b}' &= \frac{\vct{c} \times \vct{a}}
+    {\vct{a} \cdot (\vct b \times \vct c)}\\
+    \vct{c}' &= \frac{\vct{a} \times \vct{b}}
+    {\vct{a} \cdot (\vct b \times \vct c)}\\
+\end{align*}
