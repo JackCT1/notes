@@ -123,10 +123,38 @@
         \vct{\unt{x}} & \vct{\unt{y}} & \vct{\unt{z}} \\ 
         a_x & a_y & a_z \\ 
         b_x & b_y & b_z \\ 
-        \end{vmatrix}
+    \end{vmatrix}
 \end{equation*}
 
 \section{Triple Products}
+
+\begin{equation*}
+    [\vct{a}, \vct{b}, \vct{c}] \equiv \vct{a} \cdot (\vct{b} \times \vct{c})
+\end{equation*}
+
+\begin{equation*}
+    \vct{a} \cdot (\vct{b} \times \vct{c}) = 
+    a_x(b_yc_z - b_zc_y) + a_y(b_zc_x - b_xc_z) +
+    a_z(b_xc_y - b_yc_x)
+\end{equation*}
+
+\begin{equation*}
+    \vct{a} \cdot (\vct{b} \times \vct{c}) = 
+    \begin{vmatrix}
+        a_x & a_y & a_z \\ 
+        b_x & b_y & b_z \\ 
+        c_x & c_y & c_z \\ 
+    \end{vmatrix}
+\end{equation*}
+
+\begin{align*}
+    \vct{a} \times (\vct{b} \times \vct{c}) = 
+    (\vct{a} \cdot \vct{c})\vct{b} - 
+    (\vct{a} \cdot \vct{b})\vct{c}\\
+    (\vct{a} \times \vct{b}) \times \vct{c} = 
+    (\vct{a} \cdot \vct{c})\vct{b} - 
+    (\vct{b} \cdot \vct{c})\vct{a}\\
+\end{align*}
 
 \section{Reciprocal Vectors}
 
