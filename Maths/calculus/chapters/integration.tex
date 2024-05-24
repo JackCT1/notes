@@ -2,7 +2,12 @@
 \section{The Integral}
 
 In essence, an integral is just a sum. A sum of infinitely many infitetesimally small parts.
-Integrals are most commonly visualised as the area under a curve.
+Integrals are most commonly visualised as the area under a curve. If wanted to estimate the
+area under a curve we might seek to divide the area into vertical rectangles, each with a 
+thickness $\Delta x$ and a height of $f(x)$, and sum the combined area of all of these rectangles. 
+We can see that this estimate of the area under the curve gets more accurate when we use 
+thinner rectangles to the point where if we take the limit $\Delta x \to 0$, we have the 
+exact area. We write this notationally as 
 
 \begin{equation*}
     I = \int_{a}^{b} f(x)dx
@@ -11,16 +16,25 @@ Integrals are most commonly visualised as the area under a curve.
 \[\int_{a}^{b}0dx = 0, \qquad \int_{a}^{a}f(x)dx\]
 
 \begin{equation*}
-    \int_{a}^{c}f(x)dx = \int_{a}^{b}f(x)dx + \int_{b}^{a}f(x)dx
+    \int_{a}^{c}f(x)dx = \int_{a}^{b}f(x)dx + \int_{b}^{c}f(x)dx
 \end{equation*}
 
 \begin{equation*}
     \int_{a}^{b}f(x)dx = - \int_{b}^{a}f(x)dx
 \end{equation*}
 
+A key idea to note is that integration and differentiation are inherently linked. In fact,
+they are the inverse processes of each other. In other words, differentiating a function and 
+then integrating it will return the exact same function, no change. To prove this, suppose we
+have a function $F(x)$ which is the integral of another function $f(u)$ between the points $a$
+and $x$.
+
 \begin{equation*}
     F(x) = \int_{a}^{x}f(u)du
 \end{equation*}
+
+$a$ is fixed and so $x$ is the only variable. Now if we consider the value of $F$ at $x + \Delta x$
+then we get
 
 \begin{align*}
     F(x + \Delta x) &= \int_{a}^{x + \Delta x}f(u)du\\
@@ -28,18 +42,29 @@ Integrals are most commonly visualised as the area under a curve.
     &= F(x) + \int_{x}^{x + \Delta x}f(u)du\\
 \end{align*}
 
+Now dividing both sides by $\Delta x$,
+
 \begin{equation*}
     \frac{F(x + \Delta x) - F(x)}{\Delta x} = 
     \frac{1}{\Delta x}\int_{x}^{x + \Delta x}f(u)du
 \end{equation*}
 
+We can see that the left hand side is just the derivative of $F(x)$ and the integral on the 
+right evaluates to $f(x)\Delta x$ if $\Delta x $ is sufficiently small. This now gives us
+
 \begin{equation*}
     \frac{dF(x)}{dx} = \frac{1}{\Delta x}f(x)\Delta x = f(x)
 \end{equation*}
 
+Using our initial expression for $F(x)$, we can rewrite this as
+
 \begin{equation*}
     \frac{d}{dx}\left[\int_{a}^{x}f(u)du\right] = f(x)
 \end{equation*}
+
+Thus showing the inverse relationship between derivatives and integrals. This relation is called
+\textbf{The Fundamental Theorem of Calculus} and is the basis of calculus we will use going 
+forward.
 
 \begin{equation*}
     \int x^{n}dx = \frac{x^{n+1}}{n+1} + C
@@ -48,7 +73,13 @@ Integrals are most commonly visualised as the area under a curve.
 \[\int e^{ax}dx = \frac{1}{a}e^{ax} + c, \qquad \int \frac{1}{x}dx = ln(x) + c\]
 
 \section{Integration by Substitution}
+An integral can often be made simpler when we make a change of variables, also called substitution.
+Deciding what substitution is best comes from practice and can be a bit of an art form. The following
+are some useful examples.
+
 \section{Integration by Parts}
+
+We can derive a useful relation for integration using the product rule.
 
 \begin{equation*}
     \frac{d}{dx}(uv) = u \frac{dv}{dx} + \frac{du}{dx} v
