@@ -38,8 +38,20 @@
 \end{equation*}
 
 \begin{equation*}
-    \arg(z) = \arctan\left(\frac{y}{x}\right)
+    \arg(z) = \tan^{-1}\left(\frac{y}{x}\right)
 \end{equation*}
+
+\begin{equation*}
+    zz^* = (x + iy)(x - iy) = x^2 + y^2 = |z|^2
+\end{equation*}
+
+\begin{align*}
+    (z^*) &= z\\
+    z + z^* &= 2x\\
+    z - z^* &= 2iy\\
+    \frac{z}{z^*} &= \left(\frac{x^2-y^2}{x^2+y^2}\right) +
+    i \left(\frac{2xy}{x^2 + y^2}\right)
+\end{align*}
 
 \section{Polar Representation}
 
@@ -61,6 +73,11 @@
     e^{in\theta} = \cos n\theta + i \sin n\theta
 \end{equation*}
 
+\begin{align*}
+    re^{i\theta} &= r(\cos\theta + i\sin\theta)\\
+    &= x + iy
+\end{align*}
+
 \begin{equation*}
     z = re^{i\theta}
 \end{equation*}
@@ -69,10 +86,33 @@
     re^{i\theta} = re^{i(\theta + 2n\pi)}
 \end{equation*}
 
+\begin{align*}
+    z_1z_2 &= r_1e^{i\theta_1}r_2e^{i\theta_2}\\
+    &= r_1r_2e^{i(\theta_1 + \theta_2)}
+\end{align*}
+
+\begin{align*}
+    \frac{z_1}{z_2} &= \frac{r_1e^{i\theta_1}}{r_2e^{i\theta_2}}\\
+    &= \frac{r_1}{r_2}e^{i(\theta_1 - \theta_2)}
+\end{align*}
+
 \section{De Moivre's Theorem}
 \begin{equation*}
     (\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta)
 \end{equation*}
+
+\begin{align*}
+    z^n + \frac{1}{z^n} &= (\cos\theta + i\sin\theta)^n + (cos\theta + i\sin\theta)^{-n}\\
+    &= \cos n\theta + i\sin n\theta + \cos(-n\theta) - i\sin(-n\theta)\\
+    &= \cos n\theta + i\sin n\theta + \cos n\theta - i\sin n\theta\\
+    &= 2\cos n\theta
+\end{align*}
+
+\begin{align*}
+    z^n - \frac{1}{z^n} &= (\cos\theta + i\sin\theta)^n + (cos\theta + i\sin\theta)^{-n}\\
+    &= \cos n\theta + i\sin n\theta - \cos n\theta + i\sin n\theta\\
+    &= 2i\sin n\theta
+\end{align*}
 
 \begin{equation*}
     z + \frac{1}{z} = 2\cos\theta
@@ -80,6 +120,14 @@
 
 \begin{equation*}
     z - \frac{1}{z} = 2i\sin\theta
+\end{equation*}
+
+\begin{equation*}
+    z^n = e^{2ik\pi}
+\end{equation*}
+
+\begin{equation*}
+    z = e^{\frac{2ik\pi}{n}}
 \end{equation*}
 
 \section{Hyperbolic Functions}
@@ -92,9 +140,12 @@
     \sinh(x) = \frac{1}{2}(e^x - e^{-x})
 \end{equation*}
 
-\begin{equation*}
-    \tanh(x) = \frac{\sinh(x)}{\cosh(x)} = \frac{e^x - e^{-x}}{e^x + e^{-x}}
-\end{equation*}
+\begin{align*}
+    \tanh(x) = \frac{\sinh(x)}{\cosh(x)} = \frac{e^x - e^{-x}}{e^x + e^{-x}}\\
+    \sech(x) = \frac{1}{\cosh(x)} = \frac{2}{e^x + e^{-x}}\\
+    \csch(x) = \frac{1}{\sinh(x)} = \frac{2}{e^x - e^{-x}}\\
+    \coth(x) = \frac{1}{\tanh(x)} = \frac{e^x + e^{-x}}{e^x - e^{-x}}\\
+\end{align*}
 
 \begin{align*}
     \cos(ix) &= \frac{1}{2}(e^x + e^{-x})\\
@@ -109,9 +160,27 @@
 \end{align*}
 
 \begin{equation*}
+    \cosh^2(x) - \sinh^2(x) = 1
+\end{equation*}
+
+\begin{align*}
+    \sech^2(x) &= 1 - \tanh^2(x)\\
+    \csch^2(x) &= \coth^2(x) -1\\
+    \sinh(2x) &= 2\sinh(x)\cosh(x)\\
+    \cosh(2x) &= \cosh^2(x) + \sinh^2(x)\\
+\end{align*}
+
+\begin{equation*}
     \frac{d}{dx}\cosh(x) = \sinh(x)
 \end{equation*}
 
 \begin{equation*}
     \frac{d}{dx}\sinh(x) = \cosh(x)
 \end{equation*}
+
+\begin{align*}
+    \frac{d}{dx}(\tanh(x)) &= \sech^2(x)\\
+    \frac{d}{dx}(\sech(x)) &= -\sech(x)\tanh(x)\\
+    \frac{d}{dx}(\csch(x)) &= -\csch(x)\coth(x)\\
+    \frac{d}{dx}(\coth(x)) &= -\csch^2(x)\\
+\end{align*}
