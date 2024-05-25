@@ -16,6 +16,8 @@
     \frac{\partial^{2}f}{\partial x \partial y} = \frac{\partial^{2}f}{\partial y \partial x}
 \end{equation*}
 
+\section{The Total Differential}
+
 \begin{equation*}
     \Delta f \approx \frac{\partial f(x, y)}{\partial x}\Delta x + \frac{\partial f(x, y)}{\partial y}\Delta y
 \end{equation*}
@@ -30,4 +32,44 @@
 
 \begin{equation*}
     \frac{df}{dx_{1}} = \sum_{i}^{n}\left(\frac{\partial f}{\partial x_{i}}\right)\frac{dx_{i}}{dx_{1}}
+\end{equation*}
+
+\section{Exact Differentials}
+
+\begin{equation*}
+    df = A(x, y)dx + B(x, y)dy
+\end{equation*}
+
+\begin{equation*}
+    \frac{\partial f}{\partial x} = A(x, y), \qquad \frac{\partial f}{\partial y} = B(x, y)
+\end{equation*}
+
+\begin{equation*}
+    \frac{\partial A}{\partial x} = \frac{\partial B}{\partial x}
+\end{equation*}
+
+\section{Change of Variables}
+
+\section{Maxima and Minima}
+
+\section{Lagrange Multipliers}
+
+\section{Leibnitz' Rule}
+
+\begin{equation*}
+    F(x,t) = \int f(x,t)dt
+\end{equation*}
+
+\begin{equation*}
+    \frac{\partial F(x,t)}{\partial x} = f(x,t)
+\end{equation*}
+
+\begin{equation*}
+    \frac{\partial^{2}F(x,t)}{\partial t \partial x} = \frac{\partial^{2}F(x,t)}{\partial x \partial t}
+\end{equation*}
+
+\begin{equation*}
+    \frac{\partial}{\partial t}\left[\frac{\partial F(x,t)}{\partial x}\right] =
+    \frac{\partial}{\partial x}\left[\frac{\partial F(x,t)}{\partial t}\right] =
+    \frac{\partial f(x,t)}{\partial x}
 \end{equation*}
