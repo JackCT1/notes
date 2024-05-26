@@ -52,6 +52,10 @@
 
 \section{Maxima and Minima}
 
+\begin{equation*}
+    \frac{\partial f}{\partial x} = 0, \qquad \frac{\partial f}{\partial y} = 0
+\end{equation*}
+
 \section{Lagrange Multipliers}
 
 \section{Leibnitz' Rule}
@@ -73,3 +77,23 @@
     \frac{\partial}{\partial x}\left[\frac{\partial F(x,t)}{\partial t}\right] =
     \frac{\partial f(x,t)}{\partial x}
 \end{equation*}
+
+\begin{equation*}
+    \frac{\partial F(x,t)}{\partial x} = \int \frac{\partial f(x,t)}{\partial x} dt
+\end{equation*}
+
+\begin{align*}
+    I(x) &= \int_{t=v}^{t=u}f(x,t)dt\\
+    &= F(x,v) - F(x,u)
+\end{align*}
+
+\begin{align*}
+    \frac{dI(x)}{dx} &= \frac{\partial F(x,v)}{\partial x} - \frac{\partial F(x,u)}{\partial x}\\
+    &= \int^{v} \frac{\partial f(x,t)}{\partial x}dt - \int^{u} \frac{\partial f(x,t)}{\partial x}dt\\
+    &= \int_{u}^{v} \frac{\partial f(x,t)}{\partial x}dt
+\end{align*}
+
+\begin{align*}
+    I(x) &= \int_{t=v(x)}^{t=u(x)}f(x,t)dt\\
+    &= F(x,v(x)) - F(x,u(x))
+\end{align*}
