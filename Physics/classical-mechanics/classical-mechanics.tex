@@ -1,0 +1,34 @@
+\documentclass[]{report}
+
+\usepackage{circuitikz}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{tikzsymbols}
+\usepackage{pgfplots}
+\usepackage{layout}
+\usepackage[left=25mm, right=25mm]{geometry}
+
+\pgfplotsset{compat=1.18}
+
+\newcommand{\vct}{\boldsymbol}
+\newcommand{\unt}{\hat}
+
+\begin{document}
+
+\title{Classical Mechanics}
+\author{Jack Thomas}
+\date{}
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+\include{chapters/newtons-laws}
+\include{chapters/momentum}
+\include{chapters/energy}
+\include{chapters/rotational-motion}
+\include{chapters/special-relativity}
+
+\end{document}
