@@ -1,0 +1,31 @@
+\documentclass[]{report}
+
+\usepackage{circuitikz}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{tikzsymbols}
+\usepackage{pgfplots}
+\usepackage{layout}
+\usepackage[left=25mm, right=25mm]{geometry}
+
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+
+\title{Calculus}
+\author{Jack Thomas}
+\date{}
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+\include{chapters/first-order-odes}
+\include{chapters/higher-order-odes}
+\include{chapters/fourier-series}
+\include{chapters/integral transforms}
+\include{chapters/partial-diff-eqns}
+
+\end{document}
