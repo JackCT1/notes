@@ -10,10 +10,53 @@
     I = \int_{}^{}\int_{}^{}f(x,y)dxdy
 \end{equation*}
 
+\begin{equation*}
+    I = \int_{y=c}^{y=d}\left\{
+        \int_{x=x_1(y)}^{x=x_2(y)}
+        f(x, y)dx
+    \right\}dy
+\end{equation*}
+
 \section{Triple Integrals}
 
-\section{Change of Variables}
+\begin{equation*}
+    I = \int_{}^{}f(x,y,z)dV
+\end{equation*}
+
+\begin{equation*}
+    I = \int_{}^{}\int_{}^{}f(x,y)dxdydz
+\end{equation*}
+
+\begin{equation*}
+    I = \int_{x_1}^{x_2}dx
+    \int_{y_1(x)}^{y_2(x)}dy
+    \int_{z_1(x,y)}^{z_2(x,y)}f(x,y,z)dz
+\end{equation*}
+
+\section{Change of Variables and The Jacobian}
+
+\begin{equation*}
+    dA_{uv} = 
+    \begin{vmatrix}
+        \dfrac{\partial x}{\partial u}du
+        \dfrac{\partial y}{\partial v}dv - 
+        \dfrac{\partial x}{\partial v}dv
+        \dfrac{\partial y}{\partial u}du
+    \end{vmatrix}
+\end{equation*}
+
+\begin{equation*}
+    J \equiv \frac{\partial (x,y)}{\partial (u,v)} \equiv 
+    \frac{\partial x}{\partial u}\frac{\partial y}{\partial v} -
+    \frac{\partial x}{\partial v}\frac{\partial y}{\partial u}
+\end{equation*}
+
+\begin{equation*}
+    J =
+    \begin{vmatrix}
+        \dfrac{\partial x}{\partial u} & \dfrac{\partial y}{\partial v} \\[2ex]
+        \dfrac{\partial x}{\partial v} & \dfrac{\partial y}{\partial u} \\
+    \end{vmatrix}
+\end{equation*}
 
 \section{The Gaussian Integral}
-
-\section{The Jacobian}
