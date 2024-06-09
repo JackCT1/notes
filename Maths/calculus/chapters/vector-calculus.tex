@@ -14,7 +14,7 @@
 \end{equation*}
 \section{Integrating Vectors}
 
-\section{Grad, Div, and Curl}
+\section{Vector Operators}
 
 \begin{equation*}
     \nabla \equiv \frac{\partial}{\partial x}\boldsymbol{\hat{x}} +
@@ -45,20 +45,295 @@
     \left(\frac{\partial a_y}{\partial x} - \frac{\partial a_x}{\partial y}\right)\boldsymbol{\hat{z}}
 \end{equation*}
 
+\begin{equation*}
+    \nabla \times \boldsymbol{a} = 
+    \begin{vmatrix}
+        \vct{\unt{x}} & \vct{\unt{y}} & \vct{\unt{z}} \\ 
+        \dfrac{\partial}{\partial x} & 
+        \dfrac{\partial}{\partial y} & 
+        \dfrac{\partial}{\partial z} \\ 
+        a_x & a_y & a_z \\ 
+    \end{vmatrix}
+\end{equation*}
+
 \section{Cylindrical Polar Coordinates}
 
-\[ x = \rho\cos\phi, y = \rho\sin\phi, z = z\]
+\begin{center}
+    \begin{tikzpicture}
+        \coordinate (O) at (0,0,0);
+        \begin{pgfonlayer}{background}
+            \draw[thick,-latex] (0,0,0) -- (5,0,0) node[pos=1.1]{$y$};
+            \draw[thick,-latex] (0,0,0) -- (0,5,0) node[pos=1.05]{$z$};
+            \draw[thick,-latex] (0,0,0) -- (0,0,5) node[pos=1.05]{$x$};
+        \end{pgfonlayer}
+        \begin{pgfonlayer}{main}
+            \draw[thick, ->] (O) -- (4, 4, 4);
+            \draw[dashed] (4, 4, 4) -- (4, 0, 4);
+            \draw (O) -- (4, 0, 4);
+            \draw[dashed] (0, 0, 4) -- (4, 0, 4);
+            \draw[dashed] (4, 0, 0) -- (4, 0, 4);
+            \draw (0.5, 0.5, 0) arc [radius = 0.5, start angle = 45, end angle = 108];
+            \draw (0, 0, 1) arc [radius = 1, start angle = 250, end angle = 301];
+            \node [below] at (2, 0, 4) {\(\rho\sin\phi\)};
+        \end{pgfonlayer}
+    \end{tikzpicture}
+\end{center}
+    
+
+\[ x = \rho\cos\phi, \qquad y = \rho\sin\phi, \qquad z = z\]
+
+\begin{equation*}
+    \vct{r} = \rho\cos\phi\vct{\unt{x}} + 
+    \rho\sin\phi\vct{\unt{y}} +
+    z\vct{\unt{z}}
+\end{equation*}
+
+\begin{center}
+    \begin{tikzpicture}[tdplot_main_coords]
+
+        %Coordinates
+        \coordinate (O) at (0,0,0);
+        %%
+        \cylindricalcoordinate{\rvec}{\phivec}{\zvec}{A}
+        \cylindricalcoordinate{\rvec}{\phivec}{(\zvec+\dzvec)}{B}
+        \cylindricalcoordinate{\rvec}{(\phivec+\dphivec)}{\zvec}{C}
+        \cylindricalcoordinate{\rvec}{(\phivec+\dphivec)}{(\zvec+\dzvec)}{D}
+        %%
+        \cylindricalcoordinate{(\rvec+\drvec)}{\phivec}{\zvec}{A'}
+        \cylindricalcoordinate{(\rvec+\drvec)}{\phivec}{(\zvec+\dzvec)}{B'}
+        \cylindricalcoordinate{(\rvec+\drvec)}{(\phivec+\dphivec)}{\zvec}{C'}
+        \cylindricalcoordinate{(\rvec+\drvec)}{(\phivec+\dphivec)}{(\zvec+\dzvec)}{D'} 
+        
+        %Axis
+        \begin{pgfonlayer}{background}
+            \draw[thick,-latex] (0,0,0) -- (6,0,0) node[pos=1.1]{$x$};
+            \draw[thick,-latex] (0,0,0) -- (0,6,0) node[pos=1.05]{$y$};
+            \draw[thick,-latex] (0,0,0) -- (0,0,7) node[pos=1.05]{$z$};
+        \end{pgfonlayer}
+        
+        %Vectors
+        \begin{pgfonlayer}{main}
+            \draw[thick] (O) -- (A);
+            \draw[thick] (O) -- (Axy) node [pos=0.6, below left] {$\varpi$};
+            \draw (A) -- ($(A)-(Axy)$) node [left] {$z$};
+            \draw (B) -- ($(A)-(Axy)+(0,0,\dzvec)$) node [left] {$z+\mathrm{d}z$};
+            \draw (D) -- ($(A)-(Axy)+(0,0,\dzvec)$);
+        \end{pgfonlayer}
+        \begin{pgfonlayer}{background}
+            \draw[dashed] (C) -- ($(A)-(Axy)$) node [left] {$z$};
+        \end{pgfonlayer}
+        
+        %Help Lines
+        \begin{pgfonlayer}{background}
+            \draw (A) -- (Axy);
+            \draw (A') -- (A'xy);
+            \draw[thick] (Axy) -- (A'xy) node [pos=0.6, below left] {$\mathrm{d}\varpi$};
+            %
+            \draw (O) -- (D'xy);
+            \draw[dashed] (C) -- (Dxy); 
+            \draw (C') -- (C'xy);
+            %%Arcs
+            \tdplotdrawarc{(0,0,0)}{\rvec}{\phivec}{\phivec+\dphivec}{}{}
+            \tdplotdrawarc{(0,0,0)}{\rvec+\drvec}{\phivec}{\phivec+\dphivec}{}{}
+        \end{pgfonlayer}
+        
+        %Angles
+        \begin{pgfonlayer}{foreground}
+            %Phi, dPhi
+            \tdplotdrawarc[-stealth]{(O)}{0.9}{0}{\phivec}{anchor=north}{$\phi$}
+            \tdplotdrawarc[-stealth]{(O)}{1.5}{\phivec}{\phivec + \dphivec}{}{}
+            \node at (1.4,1.9,0) {$\mathrm{d}\phi$};    
+        \end{pgfonlayer}
+        
+        %Differential Volume
+        
+        %%Lines
+        \begin{pgfonlayer}{foreground}
+            \draw[thick] (A) -- (B) -- (B') -- (A') -- cycle node [midway, below] {$\mathrm{d}\varpi$};
+            \draw[thick] (D) -- (D') -- (C') node [midway, right] {$\mathrm{d}z$};
+        \end{pgfonlayer}
+        \begin{pgfonlayer}{background}
+            \draw[thick, dashed] (C') -- (C) -- (D);
+        \end{pgfonlayer}
+        
+        %%Curved
+        \begin{pgfonlayer}{background}
+            \tdplotdrawarc[thick, dashed]{(0,0,\zvec)}{\rvec} {\phivec}{\phivec+\dphivec}{}{}
+        \end{pgfonlayer}
+        \begin{pgfonlayer}{foreground}
+            \tdplotdrawarc[thick]{(0,0,\zvec+\dzvec)}{\rvec} {\phivec}{\phivec+\dphivec}{}{}
+            \tdplotdrawarc[thick]{(0,0,\zvec+\dzvec)}{\rvec+\drvec} {\phivec}{\phivec+\dphivec}{}{}
+            \tdplotdrawarc[thick]{(0,0,\zvec)}{\rvec+\drvec} {\phivec}{\phivec+\dphivec}{below}{$\varpi\mathrm{d}\phi$}
+        \end{pgfonlayer}
+        
+        %%Fill Color
+        \begin{pgfonlayer}{main}
+            %Front
+            \fill[black, opacity=0.15] (B) to (B') to[bend right=4] (D') to (D) to[bend left=4] cycle;
+            \fill[black, opacity=0.6] (B') to[bend right=4] (D') to (C') to[bend left=4] (A') to cycle;
+            \fill[black, opacity=0.4] (B) to (B')  to (A') to (A) to cycle;
+        \end{pgfonlayer}
+        \begin{pgfonlayer}{background}
+            %Back
+            \fill[black!50, opacity=0.5] (D) to (D') to (C') to (C) to cycle;
+            \fill[black!50, opacity=0.5] (B) to[bend right=4] (D) to (C) to[bend left=4] (A) to cycle;
+            \fill[black!50, opacity=0.5] (A) to (A') to[bend right=4] (C') to (C) to[bend left=4] cycle;
+        \end{pgfonlayer}
+        
+        \end{tikzpicture}
+\end{center}
 
 \section{Spherical Polar Coordinates}
+
+\[ x = r\sin\theta\cos\phi, \qquad y = r\sin\theta\sin\phi, \qquad z = r\cos\theta\]
+
+\begin{equation*}
+    \vct{r} = r\sin\theta\cos\phi\vct{\unt{x}} + 
+    r\sin\theta\sin\phi\vct{\unt{y}} +
+    r\cos\theta\vct{\unt{z}}
+\end{equation*}
+
+\begin{center}
+    \begin{tikzpicture}[tdplot_main_coords]
+
+        %Coordinates  
+        \coordinate (O) at (0,0,0);  
+        \tdplotsetcoord{A}{\rvec}{\thetavec}{\phivec}  
+        \tdplotsetcoord{B}{\rvec}{\thetavec + \dthetavec}{\phivec}         
+        \tdplotsetcoord{C}{\rvec}{\thetavec + \dthetavec}{\phivec + \dphivec}  
+        \tdplotsetcoord{D}{\rvec}{\thetavec}{\phivec + \dphivec}  
+        \tdplotsetcoord{E}{\rvec + \drvec}{\thetavec}{\phivec}  
+        \tdplotsetcoord{F}{\rvec + \drvec}{\thetavec + \dthetavec}{\phivec}  
+        \tdplotsetcoord{F'}{\rvec + \drvec}{90}{\phivec}  \tdplotsetcoord{G}{\rvec + \drvec}{\thetavec + \dthetavec}{\phivec + \dphivec}  
+        \tdplotsetcoord{G'}{\rvec + \drvec}{90}{\phivec + \dphivec} 
+        \tdplotsetcoord{H}{\rvec + \drvec}{\thetavec}{\phivec + \dphivec} 
+            
+        %Axis  
+        \begin{pgfonlayer}{background}  
+            \draw[thick,-latex] (0,0,0) -- (7,0,0) node[pos=1.1]{$x$};        
+            \draw[thick,-latex] (0,0,0) -- (0,7,0) node[pos=1.05]{$y$};         
+            \draw[thick,-latex] (0,0,0) -- (0,0,6) node[pos=1.05]{$z$};                   
+        \end{pgfonlayer}
+        
+        %Help Lines  
+        \begin{pgfonlayer}{background}  
+            %Up     
+            \draw[thick] (O) -- (A) node[pos=0.6, above left] {$r$};    
+            \draw (O) -- (B);   
+            \draw (O) -- (C);   
+            \draw[dashed] (O) -- (D);   
+            %Down   
+            \draw (O) -- (F');  
+            \draw (O) -- (G');  
+        \end{pgfonlayer}  
+        \begin{pgfonlayer}{foreground}  
+            %%Help Curves   
+            \tdplotsetthetaplanecoords{\phivec}     
+            \tdplotdrawarc[tdplot_rotated_coords]{(O)}{\rvec}{\thetavec+\dthetavec}{90}{}{}
+            %
+            \tdplotdrawarc[tdplot_rotated_coords]{(O)}{\rvec+\drvec}{\thetavec+\dthetavec}{90}{}{}
+            %
+            \tdplotsetthetaplanecoords{\phivec+\dphivec}    
+            \tdplotdrawarc[tdplot_rotated_coords, dashed]{(O)}{\rvec}{\thetavec+\dthetavec}{90}{}{}     
+            \tdplotdrawarc[tdplot_rotated_coords]{(O)}{\rvec+\drvec}{\thetavec+\dthetavec}{90}{}{}
+            %   
+            \tdplotdrawarc[tdplot_main_coords]{(O)}{\rvec}{\phivec}{\phivec+\dphivec}{}{}
+            %    
+            \tdplotdrawarc[tdplot_main_coords]{(O)}{\rvec+\drvec}{\phivec}{\phivec+\dphivec}{below, rotate=13}{$r\sin\theta\mathrm{d}\phi$} 
+        \end{pgfonlayer}
+        
+        
+        %Angles  
+        \begin{pgfonlayer}{foreground}  
+            %Phi, dPhi  
+            \tdplotdrawarc[-stealth]{(O)}{0.9}{0}{\phivec}{anchor=north}{$\phi$}    
+            \tdplotdrawarc[-stealth]{(O)}{1.5}{\phivec}{\phivec + \dphivec}{}{}     
+            \node at (1.4,1.9,0) {$\mathrm{d}\phi$};        
+            \tdplotsetthetaplanecoords{\phivec}     
+            %Theta, dTheta          
+            \tdplotdrawarc[tdplot_rotated_coords,-stealth]{(0,0,0)}{1.2}{0}{\thetavec}{}{}      
+            \node at (0,0.3,1.3) {$\theta$};    
+            \tdplotdrawarc[tdplot_rotated_coords,-stealth]{(0,0,0)}{2.5}{\thetavec}{\thetavec + \dthetavec}{anchor=south west}{$\mathrm{d}\theta$}  
+        \end{pgfonlayer}
+        
+        %Differential Volume
+        
+        %%Lines  
+        \begin{pgfonlayer}{foreground}  
+            \draw[thick] (A) -- (E) node[midway, above left]{$\mathrm{d}r$};    
+            \draw[thick] (B) -- (F);    
+            \draw[thick] (C) -- (G);      
+        \end{pgfonlayer}   
+        \begin{pgfonlayer}{background}
+            \draw[dashed, thick] (D) -- (H);  
+        \end{pgfonlayer}
+        
+        %%Curved 
+        \begin{pgfonlayer}{background}      
+            \tdplotsetrotatedcoords{55}{-50.4313}{-6.4086}  
+            \tdplotdrawarc[dashed, tdplot_rotated_coords, thick]{(O)}{\rvec}{0}{12.8173}{}{}
+            %   
+            \tdplotsetthetaplanecoords{\phivec + \dphivec}  
+            \tdplotdrawarc[dashed, tdplot_rotated_coords, thick]{(O)}{\rvec}{\thetavec}{\dthetavec + \thetavec}{}{}  
+         \end{pgfonlayer} 
+         \begin{pgfonlayer}{foreground}     
+            \tdplotsetthetaplanecoords{\phivec}     
+            \tdplotdrawarc[tdplot_rotated_coords, thick]{(O)}{\rvec}{\thetavec}{\dthetavec + \thetavec}{}{}     
+            \tdplotdrawarc[tdplot_rotated_coords, thick]{(O)}{\rvec + \drvec}{\thetavec}{\dthetavec + \thetavec}{}{}
+            %   
+            \tdplotsetthetaplanecoords{\phivec + \dphivec}  
+            \tdplotdrawarc[tdplot_rotated_coords, thick]{(O)}{\rvec + \drvec}{\thetavec}{\dthetavec + \thetavec}{above right}{$r\mathrm{d}\theta$}  
+            %   
+            \tdplotsetrotatedcoords{55}{-50.4313}{-6.4086}  
+            \tdplotdrawarc[tdplot_rotated_coords, thick]{(O)}{\rvec + \drvec}{0}{12.8173}{}{}   
+            %   
+            \tdplotsetrotatedcoords{55}{-30.3813}{-8.6492}          
+            \tdplotdrawarc[tdplot_rotated_coords, thick]{(O)}{\rvec}{0}{17.2983}{}{}    
+            \tdplotdrawarc[tdplot_rotated_coords, thick]{(O)}{\rvec + \drvec}{0}{17.2983}{}{}  
+        \end{pgfonlayer}
+        
+        %Fill Color 
+        \begin{pgfonlayer}{main}    
+            %Front  
+            \fill[black, opacity=0.15] (E) to (A)  to[bend left=4] (B) to (F) to[bend right=4] cycle;   
+            \fill[black, opacity=0.6] (E) to[bend left=4] (F)  to[bend left=2] (G) to[bend right=6.5] (H) to[bend right=4] cycle;   
+            \fill[black, opacity=0.4] (F) to[bend left=2] (G) to[bend left=1.5] (C) to[bend right=2.5] (B) to[bend right=4] cycle;   
+        \end{pgfonlayer}  
+        \begin{pgfonlayer}{background}  
+            %Back   
+            \fill[black!50, opacity=0.5] (A) to[bend left=2] (D) to[bend left=6] (C) to[bend right=2.5] (B) to[bend right=4] cycle;     
+            \fill[black!50, opacity=0.5] (A) to[bend left=2] (D) to (H) to[bend right=2.5] (E) to[bend right=4] cycle;  
+            \fill[black!50, opacity=0.5] (D) to (H) to[bend left=6] (G) to[bend right=2] (C) to[bend right=6] cycle;  
+        \end{pgfonlayer}
+        
+        \end{tikzpicture}
+\end{center}
 
 \section{General Curvilinear Coordinates}
 
 \section{Line Integrals}
 
+\[ \int_C\phi d\vct{r}, \qquad \int_C\vct{a}\cdot d\vct{r}, \qquad 
+\int_C\vct{a}\times d\vct{r}\]
+
 \section{Surface Integrals}
+
+\[ \int_S\phi d\vct{S}, \qquad \int_S\vct{a}\cdot d\vct{S}, \qquad 
+\int_S\vct{a}\times d\vct{S}\]
 
 \section{Volume Integrals}
 
+\[ \int_V\phi dV, \qquad \int_V\vct{a}dV\]
+
 \section{Divergence Theorem}
 
+\begin{equation*}
+    \int_V\nabla\cdot\vct{a} dV = \oint_S\vct{a}\cdot dS
+\end{equation*}
+
 \section{Stoke's Theorem}
+    
+\begin{equation*}
+    \int_S(\nabla\times\vct{a}) dS = \oint_C\vct{a}\cdot d\vct{r}
+\end{equation*}
+
