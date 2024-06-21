@@ -39,18 +39,24 @@ To select all the columns and rows from a specific table,
 
 ```sql
 SELECT * FROM table;
+
+SELECT * FROM country;
 ```
 
 To select specific columns from a table,
 
 ```sql
 SELECT column1, column2 FROM table;
+
+SELECT id, name FROM city;
 ```
 
 To order rows by the value of a specific column ascending or descending,
 
 ```sql
 SELECT column1 FROM table ORDER BY column2 ASC/DESC;
+
+SELECT name FROM city ORDER BY rating [ASC];
 ```
 
 ### Aliases
@@ -59,6 +65,15 @@ Columns and tables can be given shorthand names or aliases using the `AS` keywor
 
 ```sql
 SELECT column1 AS c1 from table;
+
+SELECT name AS city_name FROM city;
+```
+
+```sql
+SELECT t.column1 FROM table AS t;
+
+SELECT ci.name,
+FROM city AS ci;
 ```
 
 ## Filters
@@ -67,10 +82,14 @@ SELECT column1 AS c1 from table;
 
 ```sql
 SELECT c1 from t1 WHERE c1 > number;
+
+SELECT name FROM city WHERE rating > 3;
 ```
 
 ```sql
 SELECT c1 from t1 WHERE c1 != 'string';
+
+SELECT name FROM city WHERE name != 'Berlin' AND name != 'Madrid';
 ```
 
 ### Text Operators
