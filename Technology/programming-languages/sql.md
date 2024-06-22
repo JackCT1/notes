@@ -106,31 +106,71 @@ SELECT c1 from t1 WHERE c1 LIKE 'A%' OR c1 LIKE '_ord';
 
 ```sql
 SELECT c1 from t1 WHERE c1 BETWEEN number1 AND number2;
+
+SELECT name
+FROM city
+WHERE population BETWEEN 500000 AND 5000000;
 ```
 
 ```sql
 SELECT c1 from t1 WHERE c1 IS NOT NULL;
+
+SELECT name
+FROM city
+WHERE rating IS NOT NULL;
 ```
 
 ```sql
 SELECT c1 from t1 WHERE id IN (1, 2, 3, 4);
+
+SELECT name
+FROM city
+WHERE country_id IN (1, 4, 7, 8);
 ```
 
 ## Subqueries
 
+A `subquery` is a query that is nested inside another query
+
 ### Single Value
 
 ```sql
-SELECT c1 FROM t1 WHERE c2 = (SELECT c2 FROM t1 WHERE COMPARiSON);
+SELECT c1 FROM t1 WHERE c2 = (SELECT c2 FROM t1 WHERE COMPARISON);
+
+SELECT name
+FROM city
+WHERE rating = (
+  SELECT rating
+  FROM city
+  WHERE name = 'Paris'
+);
 ```
 
 ### Multiple Value
 
 ```sql
-SELECT c1 FROM t1 WHERE c2 IN (SELECT c2 FROM t1 WHERE COMPARiSON);
+SELECT c1 FROM t1 WHERE c2 IN (SELECT c2 FROM t1 WHERE COMPARISON);
+
+SELECT name
+FROM city
+WHERE country_id IN (
+  SELECT country_id
+  FROM country
+  WHERE population > 20000000
+);
 ```
 
 ### Correlated
+
+```sql
+SELECT name
+FROM country
+WHERE EXISTS (
+  SELECT *
+  FROM city
+  WHERE country_id = country.id
+);
+```
 
 ## Joins
 
@@ -140,6 +180,11 @@ SELECT c1 FROM t1 WHERE c2 IN (SELECT c2 FROM t1 WHERE COMPARiSON);
 
 ```sql
 SELECT table1.column1, table2.column2 FROM table1 (INNER) JOIN table2 ON table1.id = table2.id;
+
+SELECT city.name, country.name
+FROM city
+[INNER] JOIN country
+  ON city.country_id = country.id;
 ```
 
 ### Left Join
@@ -148,6 +193,11 @@ SELECT table1.column1, table2.column2 FROM table1 (INNER) JOIN table2 ON table1.
 
 ```sql
 SELECT table1.column1, table2.column2 FROM table1 LEFT JOIN table2 ON table1.id = table2.id;
+
+SELECT city.name, country.name
+FROM city
+LEFT JOIN country
+  ON city.country_id = country.id;
 ```
 
 ### Right Join
@@ -156,6 +206,11 @@ Similar to `LEFT JOIN` only now all the rows on the right table are returned wit
 
 ```sql
 SELECT table1.column1, table2.column2 FROM table1 RIGHT JOIN table2 ON table1.id = table2.id;
+
+SELECT city.name, country.name
+FROM city
+RIGHT JOIN country
+  ON city.country_id = country.id;
 ```
 
 ### Full Join
@@ -164,11 +219,33 @@ SELECT table1.column1, table2.column2 FROM table1 RIGHT JOIN table2 ON table1.id
 
 ```sql
 SELECT table1.column1, table2.column2 FROM table1 FULL (OUTER) JOIN table2 ON table1.id = table2.id;
+
+SELECT city.name, country.name
+FROM city
+FULL [OUTER] JOIN country
+  ON city.country_id = country.id;
 ```
 
 ### Cross Join
 
 Cross Join returns all possible combinations of rows from the two tables.
+
+```sql
+SELECT city.name, country.name
+FROM city
+CROSS JOIN country;
+
+SELECT city.name, country.name
+FROM city, country;
+```
+
+### Natural Join
+
+```sql
+SELECT city.name, country.name
+FROM city
+NATURAL JOIN country;
+```
 
 ## Set Operations
 
@@ -176,15 +253,45 @@ Set operations combine the results of two or more queries and return them as a s
 
 ### Union
 
-Union combines the full results and removes duplicates.
+Union combines the full results of two queries and removes duplicates.
+
+```sql
+SELECT name
+FROM cycling
+WHERE country = 'DE'
+UNION / UNION ALL
+SELECT name
+FROM skating
+WHERE country = 'DE';
+```
 
 ### Intersect
 
 Intersect only returns rows appearing in both query results.
 
+```sql
+SELECT name
+FROM cycling
+WHERE country = 'DE'
+INTERSECT
+SELECT name
+FROM skating
+WHERE country = 'DE';
+```
+
 ### Except
 
 Except returns rows appearing in first query but not in the second.
+
+```sql
+SELECT name
+FROM cycling
+WHERE country = 'DE'
+EXCEPT / MINUS
+SELECT name
+FROM skating
+WHERE country = 'DE';
+```
 
 ## Aggregates
 
