@@ -1,0 +1,83 @@
+\chapter{Data Engineering}
+
+Data engineers work on the processing and storage of data. They develop and maintain 
+systems that ingest raw data and produce high-quality, structured information to 
+support use cases such as analysis and machine learning. These systems are often called
+data pipelines.\\
+
+Data pipelines perform \textbf{ETL} - Extract, Transform, Load\\
+
+\textbf{Extract} - Retrieve and collect data from various sources\\
+
+\textbf{Transform} - Put the data into a suitable format. (Modelling, remove errors, change formats, 
+map same record types to each other, testing and validation)\\
+
+\textbf{Load} - Send data into a database.\\
+
+Analysts can access the transformed data using BI tools.\\
+
+\section{Data Warehouses}
+
+Transactional databases are quick and resilient, but not useful for analysis and complex queries.
+This is where \textbf{data warehouses}  come in. A data warehouse consolidates data from 
+multiple sources and is optimised specifically for complex analytics  purposes.\\
+
+\textbf{Data Warehouse} - A central repository that stores data in queryable forms. A relational 
+database optimised for large volumes of data. Typically only contains structured data.\\
+
+\textbf{Database vs Data Warehouse}\\
+
+Databases are normalised meaning they have multiple tables (to reduce redundancy). This requires 
+complex queries with mutliple joins. Whereas, data warehouses use few tables and simple queries for 
+improved performance. Also, databases don't typically store historical data whereas data warehouses do.
+A DW typically doesn't support as many concurrent users.\\
+
+On the other hand, a \textbf{data lake} stores data raw and unstructured, no pre processing
+or defined schema. This is typically used in an \textbf{ELT} pipeline. The transforming
+is performed by the data scientists who decide what to do with the data.\\
+
+An \textbf{ELT} pipeline is used typically when as much data as possible has to be ingested. With
+transformation done later.\\
+
+\textbf{Data Flow Challenges}
+
+\begin{itemize}
+    \item Data can be corrupted
+    \item Sources may conflict
+    \item Bottlenecks can affect latency
+    \item Duplicate or incorrect data may be generated
+    \item Incompatible data types
+    \item Underestimating data load (Spike in users)
+\end{itemize}
+
+\section{Big Data}
+
+As businesses grow, so does the data they handle. Building scalable systems to deal
+with large amounts of data is called \textbf{big data}.\\
+
+\textbf{The 4 V's of Big Data}
+
+\begin{itemize}
+    \item Volume - There is a large amount of data
+    \item Variety - Data can be structured or unstructured
+    \item Veracity - Data must be of high quality
+    \item Velocity - Big Data is constantly generated
+\end{itemize}
+
+Most pipelines use \textbf{batch processing}. They run periodically and ingest a batch of
+data that has built up. With big data, new data is generated constantly making batch processing
+very slow. We can use \textbf{streaming processing} to process data in real time.\\
+
+With multiple data \textbf{providers} and multiple data \textbf{consumers}, asynchronous 
+communication allows for more efficient flow of information. Here, the data is partitioned into
+topics and the consumers subscribe to the these topics. Allowing for separate, indepedent flows 
+of information.\\
+
+\textbf{Distributed computing} is used to store and process large datasets efficiently. Computers
+are grouped into \textbf{clusters} which all perform tasks on their own partition of the data.\\
+
+\textbf{Data Migration} - Moving data between systems or environments\\
+
+\textbf{Data Wrangling} - Converting raw data into a useful format for analytics\\
+
+\textbf{Data Integration} - Collating data from multiple sources\\

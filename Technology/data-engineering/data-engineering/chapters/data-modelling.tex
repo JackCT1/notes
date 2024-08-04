@@ -1,0 +1,50 @@
+\chapter{Data Modelling}
+
+\textbf{Relational database} - A database that stores data in tables of rows and columns.\\
+
+Each table in a RD represents a aspecific object like a 'customers' table for example.
+They're called relational because entities (tables) can have relationships with others, connecting via a
+common field (column).
+
+\subsubsection*{Advantages of Relational Databases}
+
+\begin{itemize}
+    \item Flexible - easy to make changes without changing overall structure
+    \item Built-in security
+    \item Easy to run complex SQL queries for analysis - joins and aggregates etc
+    \item ACID compliant
+\end{itemize}
+
+\textbf{ACID} transactions - Atomicity, Consistency, Isolation, Durability\\
+
+\textbf{Atomicity} - all queries in a transaction must succeed for the transaction to succeed. 
+If one query fails, the entire transaction fails.\\
+
+\textbf{Consistency} - Referenital integrity. Data kept consistent throughout the tables
+through the use of foreign keys.\\
+
+\textbf{Isolation} - Transactions running simultaneously do not interfere with each other.\\
+
+\textbf{Durability} - Guarantee that any changes made by a committed transaction are not lost.
+
+\subsubsection*{1st Normal Form}
+
+\begin{itemize}
+    \item Atomic Values: Each cell contains a single value.
+    \item There must be a primary key to identify rows.
+    \item No duplicate rows or columns.
+\end{itemize}
+
+\subsubsection*{2nd Normal Form}
+
+\begin{itemize}
+    \item Must be in 1st normal form
+    \item Each non-key field must be fully dependent on the primary key
+\end{itemize}
+
+\subsubsection*{3rd Normal Form}
+
+\begin{itemize}
+    \item Must be in 2nd normal form
+    \item Each non-key field must not be dependent on another.
+\end{itemize}
