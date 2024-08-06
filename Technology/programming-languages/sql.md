@@ -1,6 +1,11 @@
 # SQL
 
 - [Overview](#overview)
+- [Data Types](#data-types)
+- [Operators](#operators)
+- [Clauses](#clauses)
+- [Indexes](#indexes)
+- [Constraints](#constraints)
 - [Queries](#queries)
 - [Filters](#filters)
 - [Subqueries](#subqueries)
@@ -8,30 +13,79 @@
 - [Aggregates](#aggregates)
 - [Set Operations](#set-operations)
 - [Window Functions](#window-functions)
+- [Common Table Expressions](#common-table-expressions)
+- [Views](#views)
 
 ## Overview
 
-SQL (Structured Query Language) is a tool for communicating with relational databases which store data in tables of rows and columns. This communication is done via commands. SQL commands can be put into five categories,
+`SQL` (Structured Query Language) is a tool for communicating with relational databases which store data in tables of rows and columns. This communication is done via `commands`. SQL commands can be put into five categories,
 
 ### Data Definition Language (DDL)
 
-DDL commands are used to define the database schema. This means they are used to create, modify, or delete the data structures (tables) rather than the data itself.
+`DDL` commands are used to define the database schema. This means they are used to create, modify, or delete the data structures (tables) rather than the data itself.
+
+#### DDL Commands
+
+- `CREATE` - Create database or database objects like tables
+- `DROP` - Delete database objects
+- `ALTER` - Change database structure
+- `TRUNCATE` - Remove all records in a table
+- `COMMENT` - Add comments to dictionary
+- `RENAME` - Rename a database object
 
 ### Data Query Language (DQL)
 
-DQL commands retrieve data from the database and can perform operations to derive insights from the data. The results are compiled into a temporary table for display.
+`DQL` commands retrieve data from the database and can perform operations to derive insights from the data. The results are compiled into a temporary table for display.
+
+#### DQL Commands
+
+- `SELECT` - Retrieves data from database
 
 ### Data Manipulation Language (DML)
 
-Similar to DDL for the database schema, DML commands create, update, and delete data in the database. They can insert data into tables, change change records, and delete them from tables.
+Similar to DDL for the database schema, `DML` commands create, update, and delete data in the database. They can insert data into tables, change change records, and delete them from tables.
+
+#### DML Commands
+
+- `INSERT` - Insert data into a table
+- `UPDATE` - Change existing data in a table
+- `DELETE` - Delete records from a table
+- `LOCK` - Manages transaction concurrency (locked data can't be altered)
+- `EXPLAIN PLAN` -Describe access path to data
 
 ### Data Control Language (DCL)
 
-DCL is mainly focused on assigning privileges and controls to users, granting or removing them access to specific parts of the database.
+`DCL` is mainly focused on assigning privileges and controls to users, granting or removing them access to specific parts of the database.
+
+#### DCL Commands
+
+- `GRANT` - Assign privileges to a user
+- `REVOKE` - Remove privileges to a user
 
 ### Transaction Control Language (TCL)
 
-A transaction is an action (change) performed on the database. TCL commands are used for managing a series of transactions.
+A `transaction` is an action (change) performed on the database. It is a series of tasks performed as one unit. If one task fails, the whole transaction fails.
+
+`TCL` commands are used for managing a series of transactions.
+
+#### TCL Commands
+
+- `BEGIN TRANSACTION` - Start new transaction
+- `COMMIT` - Save changes made during transaction
+- `ROLLBACK` - Undoes changes made during transaction
+- `SAVEPOINT` - Create savepoint in current transaction
+
+![](https://media.geeksforgeeks.org/wp-content/uploads/20210920153429/new.png)
+
+## Data Types
+
+## Operators
+
+## Clauses
+
+## Indexes
+
+## Constraints
 
 ## Queries
 
@@ -303,7 +357,32 @@ WHERE country = 'DE';
 
 ## Window Functions
 
-Window functions are similar to aggregate functions, only instead of producing a single row of results they produce a result for each row they work on.
+Window functions are similar to aggregate functions, only instead of producing a single row of results they produce a result for each row they work on. A window in this case is a set of rows.
+
+```sql
+  SELECT
+    window_function() OVER(
+         PARTITION BY partition_expression
+         ORDER BY order_expression
+         window_frame_extent
+    ) AS window_column_alias
+    FROM table_name
+```
+
+### Ranking Window Functions
+
+- `ROW_NUMBER()` - Assigns sequential integer to each row in a partition. (Not repeated)
+- `RANK()` - Assigns rank number to each row. Tied ranks share same rank.
+- `DENSE_RANK()` - Similar to rank (tied are shared) but consecutive numbers used.
+- `PERCENT_RANK` -
+- `CUM_DIST()` -
+
+### Value Window Functions
+
+- `FIRST_VALUE()` -
+- `LAST_VALUE()` -
+
+### Aggregate Window Functions
 
 ## Common Table Expressions
 
@@ -321,7 +400,7 @@ WHERE ....
 
 ## Views
 
-Views are very similar to CTE's except that they are stored to memory and so are database objects. By comparison a CTE is only a temporary table that must be used in a subsequent query else it is dropped. Also, a view stores the query itself, not the rsult of the query.
+Views are very similar to CTE's except that they are stored to memory (tables store data on disk) and so are database objects. By comparison a CTE is only a temporary table that must be used in a subsequent query else it is dropped. Also, a view stores the query itself, not the result of the query.
 
 ```sql
 CREATE VIEW view_name AS
